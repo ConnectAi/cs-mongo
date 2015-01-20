@@ -1,7 +1,7 @@
 A Mongo adapter for CS
 
 ###To install
-npm install git@github.com:ConnectAi/cs-mongo.git
+npm install git://github.com/ConnectAi/cs-mongo.git
 
 ###Configure
 In your cs config.json
