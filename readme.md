@@ -16,7 +16,7 @@ Under any environment.
 
 ###Usage
 
-    app.db.find({name: "sean"}).toArray(function(results) {
+    app.db.collectin("{{your collection}}").find({name: "sean"}).toArray(function(results) {
         console.log(results);
     });
 
