@@ -1,19 +1,16 @@
 /* globals app */
-var MongoClient = require('mongodb').MongoClient;
+let MongoClient = require('mongodb').MongoClient;
 
-// all cs-* components export a promise
+
+// cs-* components may export a promise, to delay the loading of the server
 module.exports = new Promise(function(resolve, reject) {
+	if (!app.db || !app.db.collection) {
+		// connect to MongoDB
+		MongoClient.connect(app.config.db.host, function(err, conn) {
+			if (err) return reject(err);
 
-	// connect to mongo
-	if(!app.db || !app.db.collection) {
-		MongoClient.connect(app.config.db.host,function(err, conn) {
-			if(err) {
-				reject(err);
-			} else {
-				app.db = conn;
-				resolve(app.db);
-			}
+			app.db = conn;
+			resolve(app.db);
 		});
 	}
-
 });
