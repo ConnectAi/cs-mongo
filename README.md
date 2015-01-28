@@ -33,7 +33,7 @@ Under any environment in your `config.json` file, in a Cornerstone project:
 ```js
 app.db.collection("${COLLECTION}")
     .find({ name: "Taylor Swift" })
-    .toArray(function(results) {
+    .toArray(function(err, results) {
         console.log(results);
     });
 ```
